@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwan Tutorials - Where Knowledge Meets Dedication!</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #4361ee;
+            --primary-light: #eef2ff;
+            --secondary-color: #f8f9fa;
+            --danger-color: #ef476f;
+            --success-color: #06d6a0;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --border-radius: 10px;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #4cc9f0;
+            --primary-light: #1a2639;
+            --secondary-color: #1a2639;
+            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --dark-color: #e0e0e0;
+            --light-color: #121212;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-top: 76px;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        section {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #3051d3;
+            border-color: #3051d3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+            border-color: var(--danger-color);
+        }
+        
+        .btn-danger:hover {
+            background-color: #e5305c;
+            border-color: #e5305c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(239, 71, 111, 0.3);
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+        }
+        
+        .btn-success:hover {
+            background-color: #05c090;
+            border-color: #05c090;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(6, 214, 160, 0.3);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 0 auto 30px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            background-color: var(--card-bg);
+            box-shadow: var(--box-shadow);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 15px 0;
+            transition: var(--transition);
+            background-color: var(--bg-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-light .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: 5px;
+            left: 15px;
+            transition: var(--transition);
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover::after,
+        .navbar-light .navbar-nav .nav-link.active::after {
+            width: calc(100% - 30px);
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover,
+        .navbar-light .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-color) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: rgba(0, 82, 204, 0.1);
+            z-index: 0;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(0, 82, 204, 0.05);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary-color), #4895ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .cta-buttons .btn {
+            margin-right: 15px;
+            margin-bottom: 15px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--bg-color);
+            position: relative;
+        }
+
+        .about-card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: var(--primary-light);
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .feature-list li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .mission-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0077ff 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.2);
+        }
+
+        /* Courses Section */
+        .courses-section {
+            background-color: var(--bg-color);
+            position: relative;
+        }
+
+        .course-table {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .course-table th {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0077ff 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+
+        .course-table td {
+            padding: 20px;
+            font-size: 1.05rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .course-card {
+            height: 100%;
+            transition: var(--transition);
+            background-color: var(--card-bg);
+        }
+
+        .course-card .card-header {
+            padding: 20px;
+        }
+
+        .course-card .card-body {
+            padding: 30px;
+            color: var(--text-color);
+        }
+
+        .course-features {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .course-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: var(--text-color);
+        }
+
+        .course-features li i {
+            margin-right: 10px;
+            margin-top: 5px;
+            color: var(--success-color);
+        }
+
+        /* Teachers Section */
+        .teachers-section {
+            background-color: var(--bg-color);
+        }
+
+        .teacher-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .teacher-img-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 30px auto 0;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--primary-color);
+        }
+
+        .teacher-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .teacher-card:hover .teacher-img {
+            transform: scale(1.1);
+        }
+
+        .teacher-info {
+            padding: 30px;
+            position: relative;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .teacher-badge {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0077ff 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0, 82, 204, 0.3);
+        }
+
+        .teacher-quote {
+            font-style: italic;
+            color: var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+            margin: 20px 0;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .teacher-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .teacher-detail i {
+            margin-right: 10px;
+            margin-top: 5px;
+            color: var(--primary-color);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--bg-color);
+            position: relative;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 30px;
+            color: var(--text-color);
+        }
+
+        .testimonial-text::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-color);
+            opacity: 0.3;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0077ff 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(0, 82, 204, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--bg-color);
+        }
+
+        .contact-info {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            color: var(--text-color);
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0077ff 100%);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(0, 82, 204, 0.3);
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            color: var(--text-color);
+        }
+
+        .form-control, .form-select {
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 82, 204, 0.25);
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .form-check-label {
+            color: var(--text-color);
+        }
+
+        /* Contact Method Modal */
+        .contact-method-modal .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .contact-method-modal .modal-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0077ff 100%);
+            color: white;
+            border: none;
+            padding: 20px 30px;
+        }
+
+        .contact-method-modal .modal-body {
+            padding: 30px;
+        }
+
+        .contact-method-modal .modal-footer {
+            border: none;
+            padding: 20px 30px;
+        }
+
+        .contact-method-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-method-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-method-btn i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .contact-method-btn.whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .contact-method-btn.email {
+            background-color: #EA4335;
+            color: white;
+        }
+
+        /* Demo Modal */
+        .demo-modal .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .demo-modal .modal-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0077ff 100%);
+            color: white;
+            border: none;
+            padding: 20px 30px;
+        }
+
+        .demo-modal .modal-body {
+            padding: 30px;
+        }
+
+        .demo-modal .modal-footer {
+            border: none;
+            padding: 20px 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+            color: white;
+            padding: 80px 0 20px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary-color), #0077ff, var(--primary-color));
+        }
+
+        .footer-logo {
+            height: 60px;
+            background-color: white;
+            padding: 5px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links li a {
+            color: white;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links li a i {
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        .footer-links li a:hover {
+            color: #66a3ff;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: #66a3ff;
+            transform: translateY(-5px);
+        }
+
+        .footer-contact {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-contact li {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .footer-contact li i {
+            margin-right: 15px;
+            margin-top: 5px;
+            color: #66a3ff;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .hero-section {
+                min-height: auto;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-buttons .btn {
+                display: block;
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .teacher-img-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        .pulse-button {
+            animation: pulse 2s infinite;
+            position: relative;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(239, 71, 111, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(239, 71, 111, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 71, 111, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO.jpg-5Yw30esx1IXFNuclfCQKczCczIh65a.jpeg" alt="Diwan Tutorials Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#courses">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#teachers">Our Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary rounded-pill" href="#" data-bs-toggle="modal" data-bs-target="#demoModal">Book Free Demo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1 class="hero-title">Where Knowledge Meets Dedication!</h1>
+                    <p class="hero-subtitle">Personalized coaching for Classes VII–XII (ICSE & CBSE) and competitive exams including CUET, SSC, CDS, NDA — Online | Offline | Home Tuition.</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-danger btn-lg rounded-pill" data-bs-toggle="modal" data-bs-target="#demoModal">
+                            <i class="fas fa-calendar-check me-2"></i>Book Free 1-Month Demo
+                        </a>
+                        <a href="#" class="btn btn-primary btn-lg rounded-pill" id="contactBtn" data-bs-toggle="modal" data-bs-target="#contactMethodModal">
+                            <i class="fas fa-phone-alt me-2"></i>Contact Now
+                        </a>
+                        <a href="#courses" class="btn btn-success btn-lg rounded-pill">
+                            <i class="fas fa-book-open me-2"></i>View Courses
+                        </a>
+                    </div>
+                    <div class="mt-4 demo-cta">
+                        <a href="#" class="btn btn-lg btn-danger rounded-pill shadow-lg pulse-button" data-bs-toggle="modal" data-bs-target="#demoModal">
+                            <i class="fas fa-calendar-check me-2"></i>Book Your Free 1-Month Demo Now!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Diwan Tutorials</h2>
+            <p class="section-subtitle">Where passion for teaching meets excellence in education</p>
+            <div class="divider"></div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="about-card">
+                        <p class="lead text-center mb-5">At Diwan Tutorials, we believe learning should be inspiring, engaging, and focused on the individual needs of each student.</p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Established in the heart of Kalkaji, New Delhi, we have been delivering academic excellence through a combination of modern technology, traditional mentoring, and personalized attention.</p>
+                                <p>Whether you're a student preparing for school board exams or aiming for prestigious competitive exams like CUET, SSC, CDS, or NDA – we've got you covered.</p>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h4 class="mb-4 text-primary">
+                                    <i class="fas fa-gem me-2"></i>
+                                    What Makes Us Unique?
+                                </h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="feature-list">
+                                            <li><i class="fas fa-check-circle"></i> Adaptive learning formats</li>
+                                            <li><i class="fas fa-check-circle"></i> 1 Month Free Demo Classes</li>
+                                            <li><i class="fas fa-check-circle"></i> Modern classrooms with Projectors</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="feature-list">
+                                            <li><i class="fas fa-check-circle"></i> Fully Air-Conditioned infrastructure</li>
+                                            <li><i class="fas fa-check-circle"></i> Doubt-clearing sessions</li>
+                                            <li><i class="fas fa-check-circle"></i> Focus on concept clarity</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mission-box mt-5">
+                            <h4 class="mb-3 text-center">
+                                <i class="fas fa-bullseye me-2"></i>
+                                Our Mission
+                            </h4>
+                            <p class="mb-0 text-center">To empower every learner with the right tools, teachers, and techniques to achieve academic and personal success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <h2 class="section-title">Our Courses</h2>
+            <p class="section-subtitle">Comprehensive programs designed for academic excellence</p>
+            <div class="divider"></div>
+            
+            <div class="table-responsive mt-5">
+                <table class="table table-hover course-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>School Classes</td>
+                            <td>ICSE & CBSE – Classes VII to XII</td>
+                        </tr>
+                        <tr>
+                            <td>Subjects Offered</td>
+                            <td>Maths, Physics, Chemistry, Biology, Accounts, Economics</td>
+                        </tr>
+                        <tr>
+                            <td>Competitive Exams</td>
+                            <td>CUET, SSC (CGL/CHSL), CDS, NDA</td>
+                        </tr>
+                        <tr>
+                            <td>Modes</td>
+                            <td>Offline (Classroom), Online, and Home Tuition</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bg-white p-4 rounded-3 shadow-sm mt-4 text-center">
+                <p class="mb-0">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    All classes include interactive methods, digital resources, and mock tests.
+                </p>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm course-card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">School Subjects</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> CBSE & ICSE curriculum</li>
+                                <li><i class="fas fa-check-circle"></i> Regular tests & assessments</li>
+                                <li><i class="fas fa-check-circle"></i> Concept-based learning</li>
+                                <li><i class="fas fa-check-circle"></i> Doubt clearing sessions</li>
+                                <li><i class="fas fa-check-circle"></i> Study materials provided</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#demoModal">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm course-card">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0">CUET Preparation</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> Domain-specific training</li>
+                                <li><i class="fas fa-check-circle"></i> Mock tests & analysis</li>
+                                <li><i class="fas fa-check-circle"></i> Previous year papers</li>
+                                <li><i class="fas fa-check-circle"></i> Strategic preparation</li>
+                                <li><i class="fas fa-check-circle"></i> College counseling</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-danger w-100 mt-3" data-bs-toggle="modal" data-bs-target="#demoModal">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm course-card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">SSC/CDS/NDA</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="course-features">
+                                <li><i class="fas fa-check-circle"></i> Exam-specific modules</li>
+                                <li><i class="fas fa-check-circle"></i> Speed & accuracy training</li>
+                                <li><i class="fas fa-check-circle"></i> Current affairs updates</li>
+                                <li><i class="fas fa-check-circle"></i> Interview preparation</li>
+                                <li><i class="fas fa-check-circle"></i> Physical training guidance</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-success w-100 mt-3" data-bs-toggle="modal" data-bs-target="#demoModal">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section id="teachers" class="teachers-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Teachers</h2>
+            <p class="section-subtitle">Experienced educators dedicated to your success</p>
+            <div class="divider"></div>
+            
+            <div class="row mt-5">
+                <!-- Abhishek Diwan -->
+                <div class="col-lg-6 mb-4">
+                    <div class="teacher-card">
+                        <div class="teacher-img-container">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/abhishek.jpg-ZvO0hHs5JkqQw7cnkghxIZDecoNbkq.jpeg" class="teacher-img" alt="Abhishek Diwan">
+                        </div>
+                        <div class="teacher-info">
+                            <span class="teacher-badge">Co-Founder</span>
+                            <h4>Abhishek Diwan</h4>
+                            <p class="text-muted">Senior Faculty</p>
+                            <div class="teacher-quote">
+                                <i class="fas fa-quote-left text-primary me-2"></i>
+                                <em>Mathematics and Physics aren't just subjects—they're languages of logic and curiosity.</em>
+                            </div>
+                            <p>With over 5 years of dedicated teaching experience, Abhishek Diwan has empowered hundreds of students to embrace subjects like Maths and Physics with confidence.</p>
+                            
+                            <div class="teacher-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <strong>Qualifications:</strong> Engineering background with focus on applied mathematics
+                                </div>
+                            </div>
+                            
+                            <div class="teacher-detail">
+                                <i class="fas fa-book"></i>
+                                <div>
+                                    <strong>Subjects Taught:</strong> Maths (VII–XII), Physics (XI–XII), CUET/SSC/CDS Quantitative Aptitude
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Aryan Diwan -->
+                <div class="col-lg-6 mb-4">
+                    <div class="teacher-card">
+                        <div class="teacher-img-container">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aryan.jpg-0c448xZCgfXiKEcBfbb02lydFtJCTW.jpeg" class="teacher-img" alt="Aryan Diwan">
+                        </div>
+                        <div class="teacher-info">
+                            <span class="teacher-badge">Senior Faculty</span>
+                            <h4>Aryan Diwan</h4>
+                            <p class="text-muted">Mentor</p>
+                            <div class="teacher-quote">
+                                <i class="fas fa-quote-left text-primary me-2"></i>
+                                <em>Science should excite you, not scare you.</em>
+                            </div>
+                            <p>Aryan Diwan brings energy, clarity, and real-world relevance to the classroom. With over 5 years of experience, he specializes in Chemistry, Biology, and Economics.</p>
+                            
+                            <div class="teacher-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <strong>Qualifications:</strong> Background in Life Sciences and Economics
+                                </div>
+                            </div>
+                            
+                            <div class="teacher-detail">
+                                <i class="fas fa-book"></i>
+                                <div>
+                                    <strong>Subjects Taught:</strong> Chemistry & Biology (IX–XII), Economics (XI–XII), General Awareness
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Students Say</h2>
+            <p class="section-subtitle">Success stories from our proud students</p>
+            <div class="divider"></div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            I used to fear Maths until I joined Diwan Tutorials. Abhishek Sir made me understand not just how to solve problems, but why we solve them that way. His energy and approach changed everything for me. I scored 94% in my board exam!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RS</div>
+                            <div>
+                                <h5 class="mb-0">Ritika Sharma</h5>
+                                <p class="text-muted mb-0">Class 10 (CBSE)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Aryan Sir's method of teaching is a game-changer. I could finally understand Biology without cramming. With his notes and mentoring, I cracked CUET and got admission in DU. Thank you Diwan Tutorials!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">AM</div>
+                            <div>
+                                <h5 class="mb-0">Anshul Mehta</h5>
+                                <p class="text-muted mb-0">CUET Aspirant (2024)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            The one-month free demo showed me the real difference. Every class was structured, doubts were solved instantly, and mock tests helped me track my progress. Chemistry and Physics started making sense after years of struggle!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">KS</div>
+                            <div>
+                                <h5 class="mb-0">Kavya Sinha</h5>
+                                <p class="text-muted mb-0">Class 12 (ICSE)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            This place is not just about academic knowledge. Abhishek Sir gave me the logical shortcuts to solve SSC Quant problems in half the time. My scores went from 62 to 91 in two months!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RV</div>
+                            <div>
+                                <h5 class="mb-0">Rahul Verma</h5>
+                                <p class="text-muted mb-0">SSC Aspirant (CGL)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">We're here to answer your questions</p>
+            <div class="divider"></div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Contact Information</h4>
+                        
+                        <div class="contact-item d-flex">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Phone</h5>
+                                <p class="mb-0">
+                                    <a href="tel:+919560436148" class="text-dark">+91 9560436148</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item d-flex">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Email</h5>
+                                <p class="mb-0">
+                                    <a href="mailto:diwantutorials09@gmail.com" class="text-dark">diwantutorials09@gmail.com</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item d-flex">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Address</h5>
+                                <p class="mb-0">973C/9, First Floor, Main Road Govindpuri, Kalkaji, New Delhi – 110019</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item d-flex">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Working Hours</h5>
+                                <p class="mb-0">Monday – Saturday: 8 AM to 8 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="tel:+919560436148" class="btn btn-primary me-2 mb-2">
+                                <i class="fas fa-phone-alt me-2"></i>Call Now
+                            </a>
+                            <a href="https://wa.me/919560436148" class="btn btn-success me-2 mb-2" id="whatsappBtn" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                            <a href="mailto:diwantutorials09@gmail.com" class="btn btn-danger mb-2" id="emailBtn">
+                                <i class="fas fa-envelope me-2"></i>Email
+                            </a>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.5726839857424!2d77.25!3d28.54!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMyJzI0LjAiTiA3N8KwMTUnMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" class="border-0 rounded"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Send us a Message</h4>
+                        
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Your Phone" required>
+                                </div>
+                            </div>
+                            
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            
+                            <label for="subject" class="form-label">Subject</label>
+                            <select class="form-select" id="subject">
+                                <option selected disabled>Select a subject</option>
+                                <option>General Inquiry</option>
+                                <option>Book a Free Demo</option>
+                                <option>Course Information</option>
+                                <option>Fee Structure</option>
+                                <option>Other</option>
+                            </select>
+                            
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Interested In</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="schoolClasses">
+                                            <label class="form-check-label" for="schoolClasses">
+                                                School Classes
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="cuet">
+                                            <label class="form-check-label" for="cuet">
+                                                CUET
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="competitive">
+                                            <label class="form-check-label" for="competitive">
+                                                SSC/CDS/NDA
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="form-label">Preferred Mode</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="mode" id="offline" checked>
+                                            <label class="form-check-label" for="offline">
+                                                Offline (Classroom)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="mode" id="online">
+                                            <label class="form-check-label" for="online">
+                                                Online
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="mode" id="homeTuition">
+                                            <label class="form-check-label" for="homeTuition">
+                                                Home Tuition
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                        
+                        <div class="bg-light p-4 rounded-3 text-center mt-4">
+                            <h5 class="mb-3">Want to experience our teaching first?</h5>
+                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#demoModal">
+                                <i class="fas fa-calendar-check me-2"></i>Book a Free 1-Month Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO.jpg-5Yw30esx1IXFNuclfCQKczCczIh65a.jpeg" alt="Diwan Tutorials Logo" class="footer-logo">
+                    <p>Where Knowledge Meets Dedication! Personalized coaching for school and competitive exams.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i>Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                        <li><a href="#courses"><i class="fas fa-chevron-right"></i>Courses</a></li>
+                        <li><a href="#teachers"><i class="fas fa-chevron-right"></i>Our Teachers</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i>Testimonials</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="mb-4">Contact Info</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>973C/9, First Floor, Main Road Govindpuri, Kalkaji, New Delhi – 110019</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 9560436148</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>diwantutorials09@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday – Saturday: 8 AM to 8 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary opacity-25">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Diwan Tutorials. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Method Modal -->
+    <div class="modal fade contact-method-modal" id="contactMethodModal" tabindex="-1" aria-labelledby="contactMethodModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactMethodModalLabel">Choose Contact Method</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <a href="https://wa.me/919560436148" class="contact-method-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h5 class="mb-1">WhatsApp</h5>
+                            <p class="mb-0">Chat with us directly</p>
+                        </div>
+                    </a>
+                    <a href="mailto:diwantutorials09@gmail.com" class="contact-method-btn email">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h5 class="mb-1">Email</h5>
+                            <p class="mb-0">Send us an email</p>
+                        </div>
+                    </a>
+                    <a href="tel:+919560436148" class="contact-method-btn">
+                        <i class="fas fa-phone-alt text-primary"></i>
+                        <div>
+                            <h5 class="mb-1">Phone Call</h5>
+                            <p class="mb-0">Call us directly</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Modal -->
+    <div class="modal fade demo-modal" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="demoModalLabel">Book a Free 1-Month Demo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://forms.gle/hhTvP6FGoaM8Fxrm9" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+            const themeIcon = themeToggle.querySelector('i');
+            
+            // Check for saved theme preference or use default
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+            
+            // Toggle theme
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+            
+            function updateThemeIcon(theme) {
+                if (theme === 'dark') {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
+            
+            // Navbar scroll behavior
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow');
+                } else {
+                    navbar.classList.remove('shadow');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                            window.scrollTo({
+                                top: targetPosition - navbarHeight,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // WhatsApp button functionality
+            document.getElementById('whatsappBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open('https://wa.me/919560436148', '_blank');
+            });
+
+            // Email button functionality
+            document.getElementById('emailBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'mailto:diwantutorials09@gmail.com';
+            });
+
+            // Contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Get checkbox values
+                const interests = [];
+                if (document.getElementById('schoolClasses').checked) interests.push('School Classes');
+                if (document.getElementById('cuet').checked) interests.push('CUET');
+                if (document.getElementById('competitive').checked) interests.push('SSC/CDS/NDA');
+                
+                // Get radio button value
+                const mode = document.querySelector('input[name="mode"]:checked').value;
+                
+                // Here you would typically send this data to your server
+                // For demo purposes, we'll just show an alert
+                alert(`Thank you, ${name}! Your message has been sent. We'll contact you soon.`);
+                
+                // Reset the form
+                this.reset();
+            });
+
+            // Back to top functionality
+            const backToTop = document.createElement('div');
+            backToTop.classList.add('theme-toggle');
+            backToTop.style.bottom = '80px';
+            backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            document.body.appendChild(backToTop);
+            
+            // Show/hide back to top button
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+            
+            // Initially hide back to top button
+            backToTop.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
